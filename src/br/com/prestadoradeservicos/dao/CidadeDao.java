@@ -3,11 +3,10 @@
 package br.com.prestadoradeservicos.dao;
         
 
-import br.com.prestadoradeservicos.entidades.Cidade;
 import br.com.prestadoradeservicos.conexoes.FabricaDeConexoes;
+import br.com.prestadoradeservicos.entidades.Cidade;
 import java.sql.*;
 import java.util.*;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -141,8 +140,6 @@ public class CidadeDao {
         } catch (SQLException ex) {
             Logger.getLogger(CidadeDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
         
     }
    

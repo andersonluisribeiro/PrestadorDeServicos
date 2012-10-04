@@ -48,16 +48,28 @@ public class TipoDeServico {
     }
 
     @Override
-    public boolean equals(Object obj) {
-         if( obj instanceof TipoDeServico ) {
-             TipoDeServico o = ( TipoDeServico ) obj;
-             if( o.getId() == this.getId() ){
-                 return true;
-             } else {
-                 return false;}
-         } else{
-             return false;}
+    public int hashCode() {
+        int hash = 7;
+        hash = 17 * hash + (this.id != null ? this.id.hashCode() : 0);
+        return hash;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final TipoDeServico other = (TipoDeServico) obj;
+        if (this.id != other.id && (this.id == null || !this.id.equals(other.id))) {
+            return false;
+        }
+        return true;
+    }
+
+    
 
     @Override
     public String toString() {

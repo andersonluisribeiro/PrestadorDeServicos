@@ -71,16 +71,27 @@ public class Cidade {
     }
 
     @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 67 * hash + (this.id != null ? this.id.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
     public boolean equals(Object obj) {
-         if( obj instanceof Cidade ) {
-             Cidade o = ( Cidade ) obj;
-             if( o.getId() == this.getId() ){
-                 return true;
-             } else {
-                 return false;}
-         } else{
-             return false;}
-     }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Cidade other = (Cidade) obj;
+        if (this.id != other.id && (this.id == null || !this.id.equals(other.id))) {
+            return false;
+        }
+        return true;
+    }
+    
 
     @Override
     public String toString() {
