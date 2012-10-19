@@ -14,7 +14,7 @@ import br.com.prestadoradeservicos.dao.ClienteDaoTxt;
 public class RepositoryFactory {
     
     public ClienteRepository getClienteRepository(){
-        return new ClienteDaoTxt();
+        return new ClienteDao();
     }
     
 }
