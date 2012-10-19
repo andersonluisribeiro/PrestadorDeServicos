@@ -9,6 +9,7 @@ import br.com.prestadoradeservicos.dao.CidadeDao;
 import br.com.prestadoradeservicos.dao.ClienteDao;
 import br.com.prestadoradeservicos.entidades.Cidade;
 import br.com.prestadoradeservicos.entidades.Cliente;
+import br.com.prestadoradeservicos.repositorios.RepositoryFactory;
 import br.com.prestadoradeservicos.views.CadastroDeClienteView;
 import java.util.List;
 
@@ -20,7 +21,8 @@ public class CadastroDeClienteControler {
 
     private static CadastroDeClienteControler instancia = new CadastroDeClienteControler();
     private CadastroDeClienteView view;
-    private Cliente model = new Cliente();    
+    private Cliente model = new Cliente();
+    private RepositoryFactory repositoryFactory = new RepositoryFactory();
     
     public CadastroDeClienteControler() {
         
@@ -64,7 +66,7 @@ public class CadastroDeClienteControler {
 
         view.sincronizarModelComView(model);
         if(model.getId() == null){
-            new ClienteDao().salvar(model);
+            repositoryFactory.getClienteRepository().salvar(model);
         }else{
             new ClienteDao().atualizar(model);
         }
@@ -77,7 +79,7 @@ public class CadastroDeClienteControler {
      */
     public List<Cliente> listarClientes(){
 
-        List<Cliente> lista = new ClienteDao().listar();
+        List<Cliente> lista = repositoryFactory.getClienteRepository().listar();
         return lista;
 
     }
@@ -89,7 +91,7 @@ public class CadastroDeClienteControler {
 
         view.sincronizarModelComView(model);
         if(model.getId() != null){
-            new ClienteDao().excluir(model);
+            repositoryFactory.getClienteRepository().excluir(model);
         }
 
     }

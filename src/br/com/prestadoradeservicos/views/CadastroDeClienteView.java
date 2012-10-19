@@ -220,10 +220,7 @@ public class CadastroDeClienteView extends javax.swing.JFrame {
 
         jtClientesCadastrados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Nome", "Cnpj", "Telefone", "Contato"
@@ -236,7 +233,7 @@ public class CadastroDeClienteView extends javax.swing.JFrame {
         });
         spClientesCadastrados.setViewportView(jtClientesCadastrados);
 
-        lbClientesCadastrados.setFont(new java.awt.Font("Tahoma", 1, 14));
+        lbClientesCadastrados.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbClientesCadastrados.setText("Clientes Cadastrados:");
 
         menu.setText("Menu");
@@ -524,10 +521,13 @@ public class CadastroDeClienteView extends javax.swing.JFrame {
 
         DefaultTableModel modelo = (DefaultTableModel) jtClientesCadastrados.getModel();
 
-        for (int i = (modelo.getRowCount() - 1); i >= 0; --i) {
-            modelo.removeRow(i);
-        }
+        
+        
+//        for (int i = (modelo.getRowCount() - 1); i >= 0; --i) {
+//            modelo.removeRow(i);
+//        }
 
+        
         for (Cliente objeto : lista) {
 
             modelo.addRow(new Object[]{objeto, objeto.getCnpj(), objeto.getTelefone(), objeto.getContato()});

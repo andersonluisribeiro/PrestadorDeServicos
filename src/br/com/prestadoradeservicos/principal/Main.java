@@ -6,6 +6,10 @@
 package br.com.prestadoradeservicos.principal;
 
 import br.com.prestadoradeservicos.controlers.TelaPrincipalControler;
+import br.com.prestadoradeservicos.entidades.Cliente;
+import br.com.prestadoradeservicos.repositorios.ClienteRepository;
+import br.com.prestadoradeservicos.repositorios.RepositoryFactory;
+import java.util.List;
 
 /**
  *
@@ -20,6 +24,9 @@ public class Main {
 
         TelaPrincipalControler.getInstancia().carregarInterfaceGrafica();
 
+        ClienteRepository repositorio = new RepositoryFactory().getClienteRepository();
+        List<Cliente> clientes = repositorio.listar();
+    
     }
 
 }

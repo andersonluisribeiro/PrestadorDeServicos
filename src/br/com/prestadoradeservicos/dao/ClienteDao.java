@@ -5,6 +5,7 @@ package br.com.prestadoradeservicos.dao;
 
 import br.com.prestadoradeservicos.conexoes.FabricaDeConexoes;
 import br.com.prestadoradeservicos.entidades.Cliente;
+import br.com.prestadoradeservicos.repositorios.ClienteRepository;
 import java.sql.*;
 import java.util.*;
 import java.util.List;
@@ -16,7 +17,7 @@ import javax.swing.JOptionPane;
  *
  * @author Anderson Luis Ribeiro
  */
-public class ClienteDao {
+public class ClienteDao implements ClienteRepository {
     
     private Connection con;
     private CidadeDao cidadeDao = new CidadeDao();
